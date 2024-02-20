@@ -30,6 +30,9 @@ Route::get('/inventory/{inventory}', [InventoryController::class, 'show'])->name
 Route::get('/inventory/{inventory}/edit', [InventoryController::class, 'edit'])->name('inventory.edit');
 // Route::post('/inventory/upload', 'InventoryContro ller@upload')->name('inventory.upload');
 
+
+
+
 Route::put('/inventory/{inventory}', [InventoryController::class, 'update'])->name('inventory.update');
 Route::delete('/inventory/{inventory}', [InventoryController::class, 'destroy'])->name('inventory.destroy');
 
