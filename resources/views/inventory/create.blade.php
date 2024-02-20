@@ -26,10 +26,6 @@
                 <input type="text" name="product_name" id="product_name" placeholder="Enter product name" class="form-input  mt-1 py-3 px-1 outline-none ring-1 ring-blue-600 block w-full" value="{{ old('product_name') }}" required>
             </div>
 
-
-
-            
-
             <div class="mb-4">
                 <label for="units" class="block text-lg font-semibold text-gray-600">Units:</label>
                 <input type="text" name="units" id="units" placeholder="Enter units" class="form-input  mt-1 py-3 px-1 outline-none ring-1 ring-blue-600 block w-full" value="{{ old('units') }}" required>

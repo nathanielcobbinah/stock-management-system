@@ -17,6 +17,7 @@
                 <th class="py-2 px-4 border">Stock Out</th>
                 <th class="py-2 px-4 border">Consumed</th>
                 <th class="py-2 px-4 border">Actions</th>
+                
             </tr>
         </thead>
         <tbody>
