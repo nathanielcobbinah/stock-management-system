@@ -112,17 +112,5 @@ public function update(Request $request, Inventory $inventory)
         return redirect()->route('inventory.index')->with('success', 'Inventory entry deleted successfully.');
     }
 
-    public function upload(Request $request)
-    {
-        $request->validate([
-            'excel_file' => 'required|mimes:xls,xlsx|max:10240', // Adjust the file size limit as needed
-        ]);
-
-        $excelFile = $request->file('excel_file');
-
-        // Handle the file upload and merging logic here
-
-        return redirect()->route('inventory.index')->with('success', 'Excel file uploaded and merged successfully.');
-    }
         
 }
