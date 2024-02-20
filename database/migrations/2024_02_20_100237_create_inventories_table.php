@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             // $table->unsignedBigInteger('inventory_id')->default(0); 
             $table->string('product_name');
-            $table->integer('units');
+            $table->string('units');
             $table->text('notes')->nullable();
             $table->integer('stock_in')->default(0);
             $table->integer('stock_out')->default(0);

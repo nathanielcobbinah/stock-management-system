@@ -20,8 +20,8 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 </head>
-<body class="font-sans antialiased">
-    <div class="min-h-screen bg-gray-100">
+<body class="font-sans antialiased text-gray-400" >
+    <div class="min-h-screen  bg-gradient-to-b from-black via-blue-950 to-black p-3">
         <!-- Navigation or any other common elements go here -->
 
         <!-- Page Content -->

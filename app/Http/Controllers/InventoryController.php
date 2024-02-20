@@ -33,7 +33,7 @@ class InventoryController extends Controller
     {
         $request->validate([
             'product_name' => 'required|string|max:255',
-            'units' => 'required|integer',
+            'units' => 'required|string',
             'notes' => 'nullable|string',
             'stock_in' => 'required|integer',
             'stock_out' => 'required|integer',
@@ -82,7 +82,7 @@ public function update(Request $request, Inventory $inventory)
 {
     $request->validate([
         'product_name' => 'required|string|max:255',
-        'units' => 'required|integer',
+        'units' => 'required|string',
         'notes' => 'nullable|string',
         'stock_in' => 'required|integer',
         'stock_out' => 'required|integer',

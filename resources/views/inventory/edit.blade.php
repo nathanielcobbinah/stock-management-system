@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="container mx-auto">
-        <h1 class="text-2xl font-bold mb-4">Edit Inventory Entry</h1>
+        <h1 class="text-2xl font-bold mb-4 text-center p-3">Edit Inventory Entry</h1>
 
         <!-- Display validation errors if any -->
         @if ($errors->any())
@@ -18,7 +18,7 @@
         @endif
 
         <!-- Add a form for editing an existing inventory entry -->
-        <form method="post" action="{{ route('inventory.update', $inventory->id) }}" class="max-w-md mx-auto">
+        <form method="post" action="{{ route('inventory.update', $inventory->id) }}" class="max-w-2xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-4">
             @csrf
             @method('PUT')
 
@@ -29,7 +29,7 @@
 
             <div class="mb-4">
                 <label for="units" class="block text-sm font-semibold text-gray-600">Units:</label>
-                <input type="number" name="units" id="units" class="form-input mt-1 py-3 px-1 ring-1 ring-gray-400 ouline-none block w-full" value="{{ old('units', $inventory->units) }}" required>
+                <input type="text" name="units" id="units" class="form-input mt-1 py-3 px-1 ring-1 ring-gray-400 ouline-none block w-full" value="{{ old('units', $inventory->units) }}" required>
             </div>
 
             <div class="mb-4">
@@ -52,7 +52,7 @@
                 <input type="number" name="consumed" id="consumed" class="form-input mt-1 py-3 px-1 ring-1 ring-gray-400 ouline-none block w-full" value="{{ old('consumed', $inventory->consumed) }}" required>
             </div>
 
-            <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700">Update Entry</button>
+            <button type="submit" class="col-span-3 sm:col-span-1 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700">Update Entry</button>
         </form>
     </div>
 @endsection

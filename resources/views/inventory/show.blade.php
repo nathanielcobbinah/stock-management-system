@@ -3,35 +3,41 @@
 @extends('layouts.lay')
 
 @section('content')
-    <h1>Inventory Details</h1>
+    <div class="max-w-4xl mx-auto">
+        <h1 class="text-3xl font-bold mb-6 text-center p-3">View {{ $inventory->product_name }}</h1>
 
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Product Name</th>
-                <th>Units</th>
-                <th>Notes</th>
-                <th>Stock In</th>
-                <th>Stock Out</th>
-                <th>Consumed</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>{{ $inventory->id }}</td>
-                <td>{{ $inventory->product_name }}</td>
-                <td>{{ $inventory->units }}</td>
-                <td>{{ $inventory->notes }}</td>
-                <td>{{ $inventory->stock_in }}</td>
-                <td>{{ $inventory->stock_out }}</td>
-                <td>{{ $inventory->consumed }}</td>
-            </tr>
-        </tbody>
-    </table>
+        <div class="overflow-x-auto">
+            <table class="min-w-full border border-gray-300">
+                <thead class="bg-gray-200">
+                    <tr>
+                        <th class="py-2 px-4 border">ID</th>
+                        <th class="py-2 px-4 border">Product Name</th>
+                        <th class="py-2 px-4 border">Units</th>
+                        <th class="py-2 px-4 border">Notes</th>
+                        <th class="py-2 px-4 border">Stock In</th>
+                        <th class="py-2 px-4 border">Stock Out</th>
+                        <th class="py-2 px-4 border">Consumed</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="py-2 px-4 border">{{ $inventory->id }}</td>
+                        <td class="py-2 px-4 border">{{ $inventory->product_name }}</td>
+                        <td class="py-2 px-4 border">{{ $inventory->units }}</td>
+                        <td class="py-2 px-4 border">{{ $inventory->notes ?: 'N/A' }}</td>
+                        <td class="py-2 px-4 border">{{ $inventory->stock_in }}</td>
+                        <td class="py-2 px-4 border">{{ $inventory->stock_out }}</td>
+                        <td class="py-2 px-4 border">{{ $inventory->consumed }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-    <a href="{{ route('inventory.edit', $inventory->id) }}">Edit Inventory Entry</a>
-    <!-- Add any other details or actions you want to display -->
+        <div class="mt-6 space-x-4">
+            <a href="{{ route('inventory.edit', $inventory->id) }}" class="inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700">Edit Inventory Entry</a>
+            <!-- Add any other details or actions you want to display -->
 
-    <a href="{{ route('inventory.index') }}">Back to Inventory List</a>
+            <a href="{{ route('inventory.index') }}" class="inline-block bg-gray-400 text-white py-2 px-4 rounded hover:bg-gray-500">Back to Inventory List</a>
+        </div>
+    </div>
 @endsection
