@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('inventories', function (Blueprint $table) {
             $table->id();
-            // $table->unsignedBigInteger('inventory_id')->default(0); 
             $table->string('product_name');
             $table->string('units');
             $table->text('notes')->nullable();
             $table->integer('stock_in')->default(0);
             $table->integer('stock_out')->default(0);
-            $table->integer('consumed')->default(0);
+            $table->integer('consumed')->default(0); 
+            $table->unsignedBigInteger('category_id')->nullable();
             $table->timestamps();
         });
     }

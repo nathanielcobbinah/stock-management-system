@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Inventory;
+use App\Models\InventoryCategory;
 use Illuminate\Http\Request;
-use Maatwebsite\Excel\Facades\Excel;
+// use Maatwebsite\Excel\Facades\Excel;
 
 
 class InventoryController extends Controller
@@ -13,17 +14,21 @@ class InventoryController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        $inventories = Inventory::all();
-        return view('inventory.index', compact('inventories'));
-    }
+{
+    $inventories = Inventory::all();
+    $categories = InventoryCategory::all(); // Assuming you have a Category model
+
+    return view('inventory.index', compact('inventories', 'categories'));
+}
+
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        return view('inventory.create');
+        $categories = InventoryCategory::all(); // Retrieve all categories
+        return view('inventory.create', compact('categories'));
     }
 
     /**
@@ -38,6 +43,7 @@ class InventoryController extends Controller
             'stock_in' => 'required|integer',
             'stock_out' => 'required|integer',
             'consumed' => 'required|integer',        
+            'category_id' => 'required|exists:inventory_categories,id'
         ]);
     
         Inventory::create([
@@ -47,6 +53,7 @@ class InventoryController extends Controller
             'stock_in' => $request->input('stock_in'),
             'stock_out' => $request->input('stock_out'),
             'consumed' => $request->input('consumed'),
+            'category_id' => $request->input('category_id')
         ]);
     
         return redirect()->route('inventory.index')->with('success', 'Inventory entry created successfully.');
@@ -68,8 +75,10 @@ class InventoryController extends Controller
         public function edit(string $id)
         {
             $inventory = Inventory::findOrFail($id); // Assuming 'id' is the primary key of your inventory table
-            return view('inventory.edit', compact('inventory'));
+            $categories = InventoryCategory::all(); // Retrieve all categories
+            return view('inventory.edit', compact('inventory', 'categories'));
         }
+
 
 
         /**
@@ -87,6 +96,7 @@ public function update(Request $request, Inventory $inventory)
         'stock_in' => 'required|integer',
         'stock_out' => 'required|integer',
         'consumed' => 'required|integer',
+        'category_id' => 'required|exists:inventory_categories,id'
     ]);
 
     $inventory->update([
@@ -96,6 +106,7 @@ public function update(Request $request, Inventory $inventory)
         'stock_in' => $request->input('stock_in'),
         'stock_out' => $request->input('stock_out'),
         'consumed' => $request->input('consumed'),
+        'category_id' => $request->input('category_id')
     ]);
 
     return redirect()->route('inventory.index')->with('success', 'Inventory entry updated successfully.');

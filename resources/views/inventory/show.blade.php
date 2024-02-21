@@ -3,8 +3,8 @@
 @extends('layouts.lay')
 
 @section('content')
-    <div class="max-w-4xl mx-auto">
-        <h1 class="text-3xl font-bold mb-6 text-center p-3">View {{ $inventory->product_name }}</h1>
+    <div class="max-w-4xl mx-auto p-5 sm:p-10">
+        <h1 class="text-3xl font-bold mb-6 text-center">View {{ $inventory->product_name }}</h1>
 
         <div class="overflow-x-auto">
             <table class="min-w-full border border-gray-300">
@@ -33,11 +33,11 @@
             </table>
         </div>
 
-        <div class="mt-6 space-x-4">
-            <a href="{{ route('inventory.edit', $inventory->id) }}" class="inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700">Edit Inventory Entry</a>
+        <div class="mt-6 space-y-4 sm:space-x-4 sm:flex sm:justify-center">
+            <a href="{{ route('inventory.edit', $inventory->id) }}" class="block sm:inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700">Edit Inventory Entry</a>
             <!-- Add any other details or actions you want to display -->
 
-            <a href="{{ route('inventory.index') }}" class="inline-block bg-gray-400 text-white py-2 px-4 rounded hover:bg-gray-500">Back to Inventory List</a>
+            <a href="{{ route('inventory.index') }}" class="block sm:inline-block bg-gray-400 text-white py-2 px-4 rounded hover:bg-gray-500">Back to Inventory List</a>
         </div>
     </div>
 @endsection

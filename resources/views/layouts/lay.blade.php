@@ -21,11 +21,21 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
 </head>
 <body class="font-sans antialiased text-gray-400" >
-    <div class="min-h-screen  bg-gradient-to-b from-black via-blue-950 to-black p-3">
-        <!-- Navigation or any other common elements go here -->
+    <div class="min-h-screen bg-gradient-to-b from-black via-blue-950 to-black p-3">
+        <!-- Navigation Bar -->
+        <nav class="flex items-center justify-between p-4 bg-gray-800">
+            <div>
+                <a href="{{ url('/') }}" class="text-white text-2xl font-bold">STOCK</a>
+            </div>
+            <div class="space-x-4">
+                <a href="{{ route('inventory.index') }}" class="text-white hover:underline">Inventory</a>
+                <a href="{{ route('inventory.categories') }}" class="text-white hover:underline">Category</a>
+                <!-- Add more navigation links as needed -->
+            </div>
+        </nav>
 
         <!-- Page Content -->
-        <main>
+        <main class="mt-4">
             @yield('content')
         </main>
     </div>

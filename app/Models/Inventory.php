@@ -16,6 +16,13 @@ class Inventory extends Model
         'notes',
         'stock_in',
         'stock_out',
-        'consumed'
+        'consumed',
+        'category_id'
     ];
+    
+    public function category() 
+    {
+        return $this->belongsTo(InventoryCategory::class);
+    }
+    
 }
