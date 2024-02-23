@@ -23,37 +23,37 @@
 
             <div class="mb-4 col-span-1">
                 <label for="product_name" class="block text-sm font-semibold text-gray-600">Product Name:</label>
-                <input type="text" name="product_name" id="product_name" class="form-input mt-1 py-3 px-1 ring-1 ring-gray-400 outline-none block w-full" value="{{ old('product_name') }}" required>
+                <input type="text" name="product_name" id="product_name" placeholder="Enter Inventory Name" class="form-input mt-1 py-3 px-1 ring-1 ring-gray-400 outline-none block w-full" value="{{ old('product_name') }}" required>
             </div>
 
             <div class="mb-4 col-span-1">
                 <label for="units" class="block text-sm font-semibold text-gray-600">Units:</label>
-                <input type="text" name="units" id="units" class="form-input mt-1 py-3 px-1 ring-1 ring-gray-400 outline-none block w-full" value="{{ old('units') }}" required>
+                <input type="text" name="units" id="units" placeholder="Enter units" class="form-input mt-1 py-3 px-1 ring-1 ring-gray-400 outline-none block w-full" value="{{ old('units') }}" required>
             </div>
 
             <div class="mb-4 col-span-2">
                 <label for="notes" class="block text-sm font-semibold text-gray-600">Notes:</label>
-                <textarea name="notes" id="notes" class="form-input mt-1 py-3 px-1 ring-1 ring-gray-400 outline-none block w-full">{{ old('notes') }}</textarea>
+                <textarea name="notes" id="notes" placeholder="Enter notes for the inventory" class="form-input mt-1 py-3 px-1 ring-1 ring-gray-400 outline-none block w-full">{{ old('notes') }}</textarea>
             </div>
 
             <div class="mb-4 col-span-1">
                 <label for="stock_in" class="block text-sm font-semibold text-gray-600">Stock In:</label>
-                <input type="number" name="stock_in" id="stock_in" class="form-input mt-1 py-3 px-1 ring-1 ring-gray-400 outline-none block w-full" value="{{ old('stock_in') }}" required>
+                <input type="number" name="stock_in" id="stock_in" placeholder="Enter stock in number" class="form-input mt-1 py-3 px-1 ring-1 ring-gray-400 outline-none block w-full" value="{{ old('stock_in') }}" required>
             </div>
 
             <div class="mb-4 col-span-1">
                 <label for="stock_out" class="block text-sm font-semibold text-gray-600">Stock Out:</label>
-                <input type="number" name="stock_out" id="stock_out" class="form-input mt-1 py-3 px-1 ring-1 ring-gray-400 outline-none block w-full" value="{{ old('stock_out') }}" required>
+                <input type="number" name="stock_out" id="stock_out" placeholder="Enter stock out number" class="form-input mt-1 py-3 px-1 ring-1 ring-gray-400 outline-none block w-full" value="{{ old('stock_out') }}" required>
             </div>
 
             <div class="mb-4 col-span-1">
                 <label for="consumed" class="block text-sm font-semibold text-gray-600">Consumed:</label>
-                <input type="number" name="consumed" id="consumed" class="form-input mt-1 py-3 px-1 ring-1 ring-gray-400 outline-none block w-full" value="{{ old('consumed') }}" required>
+                <input type="number" name="consumed" id="consumed" placeholder="Enter inventories consumed" class="form-input mt-1 py-3 px-1 ring-1 ring-gray-400 outline-none block w-full" value="{{ old('consumed') }}" required>
             </div>
 
             <div class="mb-4 col-span-1">
                 <label for="category_id" class="block text-sm font-semibold text-gray-600">Category:</label>
-                <select name="category_id" id="category_id" class="form-select mt-1 py-3 px-1 ring-1 ring-gray-400 outline-none block w-full" required>
+                <select name="category_id" id="category_id" placeholder="Enter Inventory Name" class="form-select mt-1 py-3 px-1 ring-1 ring-gray-400 outline-none block w-full" required>
                     <option value="" selected disabled>Select a category</option>
                     @foreach ($categories as $category)
                         <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>
