@@ -42,7 +42,7 @@ Route::post('/inventory/categories/update', [InventoryCategoryController::class,
 Route::delete('inventory/categories/{category}', [InventoryCategoryController::class, 'destroy'])->name('inventory.categories.destroy');
 
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+// Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 
 // Product routes
